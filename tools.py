@@ -36,6 +36,7 @@ def classToDict(obj):
 class MyWeb:
     def __init__(self):
         self.groupDict  = {}
+    
 
 
     def get_qq_group(self,user, password):
