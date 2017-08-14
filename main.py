@@ -1,9 +1,11 @@
 # coding=UTF-8
 import getpass
 from tools import MyWeb
-
+import sys
 if __name__ == '__main__':
 
+
+    sys.setrecursionlimit(1000000) #这里设置为一百万
 
 
     try:

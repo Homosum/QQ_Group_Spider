@@ -117,7 +117,8 @@ class MyWeb:
         print 'QQ群人数%d'%(people_num)
 
         for _ in range(int(people_num / 20)):
-            js = "var q=document.documentElement.scrollTop=500000"
+            # js = "var q=document.documentElement.scrollTop=500000"
+            js = "var q=document.body.scrollTop=500000"
             driver.execute_script(js)
             time.sleep(random.randint(2, 6))
             print("爬取第"+str(count)+"页...")
