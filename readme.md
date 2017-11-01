@@ -3,8 +3,8 @@
 ========2017.11.1=======
 已更新为Linux服务器版
 使用方法
-‘python QQGroupSpider.py QQ账号 QQ密码
-使用详情可以在homosum.cn中查看
+`python QQGroupSpider.py QQ账号 QQ密码`
+使用详情可以在 [homosum.cn](http://homosum.cn/?p=192) 中查看
 
 
 
