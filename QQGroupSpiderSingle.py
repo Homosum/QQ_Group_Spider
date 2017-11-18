@@ -294,7 +294,7 @@ if __name__ == '__main__':
        # qq_password=getpass.getpass('你的密码:\n')
         qq_num = sys.argv[1]
         qq_password = sys.argv[2]
-       # you_group = sys.argv[3]
+        you_group = sys.argv[3]
         # run=False
     except Exception as e:
         logger.info("账号密码错误,重来一遍吧")
@@ -307,8 +307,8 @@ if __name__ == '__main__':
     my_web = MyWeb()
         # print("正在获取数据...\n")
     # my_web.get_group(qq_num,qq_password)
-    my_web.get_qq_group(qq_num, qq_password)
-    # my_web.get_qq_nums(qq_num,qq_password,you_group)
+    # my_web.get_qq_group(qq_num, qq_password)
+    my_web.get_qq_nums(qq_num,qq_password,you_group)
 
 
     exit()

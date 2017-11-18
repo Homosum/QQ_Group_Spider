@@ -70,7 +70,14 @@ class MyWeb:
             qq_numbers = selector.xpath("//li[@data-id]/@data-id")  # 获取所有的QQ群组号码和名称
             qq_names = selector.xpath("//li[@data-id]/@title")
             temp_array = zip(qq_numbers, qq_names)
-            frame = DataFrame(temp_array)
+            dic_array = []
+            for arr in temp_array:
+                group = QQ_Group()
+                group.num = arr[0]
+                group.name = arr[1]
+                dic = classToDict(group)
+                dic_array.append(dic)
+            frame = DataFrame(dic_array)
             frame.fillna('NA')
             filePath = my_web.groupSavePath
             path = ('%s/%s.csv' % (filePath, user))
@@ -247,14 +254,19 @@ class MyWeb:
             driver.close()
 
 
+class QQ_Group:
+    def __init__(self):
+        self.num = ''
+        self.name = ''
+
 
 class QQ_Member:
     def __init__(self):
-        self.name=''
-        self.num=''
-        self.sex=''
-        self.qq_age=''
-        self.source=''
+        self.name = ''
+        self.num = ''
+        self.sex = ''
+        self.qq_age = ''
+        self.source = ''
 
 def get_freshList(dataList):
     freshList = []
@@ -294,7 +306,7 @@ if __name__ == '__main__':
        # qq_password=getpass.getpass('你的密码:\n')
         qq_num = sys.argv[1]
         qq_password = sys.argv[2]
-       # you_group = sys.argv[3]
+#        you_group = sys.argv[3]
         # run=False
     except Exception as e:
         logger.info("账号密码错误,重来一遍吧")
@@ -306,8 +318,8 @@ if __name__ == '__main__':
     # while run:
     my_web = MyWeb()
         # print("正在获取数据...\n")
-    # my_web.get_group(qq_num,qq_password)
-    my_web.get_qq_group(qq_num, qq_password)
+    my_web.get_group(qq_num,qq_password)
+    # my_web.get_qq_group(qq_num, qq_password)
     # my_web.get_qq_nums(qq_num,qq_password,you_group)
 
 
